@@ -1,39 +1,87 @@
-Lab – Install a |bip| |ve| image on a Hypervisor
-------------------------------------------------
+#####################################################
+Lab 2 - Log and Change Headers
+#####################################################
 
-.. TODO:: Needs lab description
+Your iRule should:
 
-In the previous lab we learned how to download the |bip| |ve| image.  Now, we
-can install the image onto a hypervisor.
+#. Log all HTTP **request** headers.
+#. Log all HTTP **response** headers.
+#. Remove the header named **Server** from all HTTP responses.
 
-Task – Upload the image to your Hypervisor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. ATTENTION::
+  OPTIONAL:  Instead of removing the **Server** header in the response, change the value of the **Server** header to **Microsoft-IIS/7.0**.
 
-.. TODO:: Needs task description
+.. IMPORTANT::
+  •	Estimated completion time: 15 minutes
 
-In this task you will upload the image to your hypervisor.
+#. Open Chrome Browser
+#. Enter https://bigip1 into the address bar and hit Enter
 
-Follow these steps to complete this task:
+   .. image:: /_static/class1/bigip_login.png
+      :width: 800
 
-.. rst-class:: task-stepsx
+#. Login with **username**: **admin** 
+              **password**: **admin.F5demo.com**
+#. Click Local Traffic -> iRules  -> iRules List
+#. Click **Create** button
 
-#. Open your hypervisor management console
-#. Figure out how to upload the image
+   .. image:: /_static/class1/irule_create.png
+      :width: 800
 
-   .. ERROR:: These are bad instructions...
+#. Enter Name of **Header_Log_Strip_iRule**
+#. Enter Your Code
+#. Click **Finished**
+#. Click Local Traffic -> Virtual Servers -> Virtual Server List
+#. Click on **http_irules_vip**
 
-#. Great!  You're done
+   .. image:: /_static/class1/select_vs.png
+      :width: 800
 
-Task – Start a |bip| |ve| Instance
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Click on the **Resources** tab
+#. Click **Manage** button for the iRules section
 
-.. TODO:: Needs task description
+   .. image:: /_static/class1/resources.png
+      :width: 800
 
-In this task we will start and instance of |bip| using the image uploaded in
-the previous task.
+#. Click on Header_Log_Strip_iRule from the Available box and click the << button, thus moving it to the Enabled box, your first and now second iRule should be in the Enabled box.
 
-Follow these steps to complete this task:
+   .. image:: /_static/class1/lab2-irules-add.png
+      :width: 800
 
-#. Open your hypervisor management console
-#. Click the |bip| image
-#. Click the 'Start' button (or it's equivalent)
+#. Click the **Finished** button
+#. Open the Firefox browser
+#. Click the 3 horizontal line button on the far right of the address bar
+#. Use **developer tools** in Mozilla, or use Chrome to view headers
+
+   .. image:: /_static/class1/firefox_developer.png
+      :width: 600
+
+#. Enter http://dvwa.f5lab.com/  and ensure you get there
+#. Now enter http://wackopicko.f5lab.com/
+#. Finally, enter http://peruggia.f5lab.com/ and ensure you can get to that app
+#. Look at the headers for each of your requests. Did you log them all? What is the value of the Server header?
+
+   .. image:: /_static/class1/lab2_verify-remove.png
+      :width: 800
+
+.. ATTENTION::
+  OPTIONAL:  Instead of removing the **Server** header in the response, change the value of the **Server** header to **Microsoft-IIS/7.0**.
+
+   .. image:: /_static/class1/lab2_verify.png
+      :width: 800
+
+.. HINT::
+
+  Basic Hint
+  `if you need a hint here is some example code: <../../class1/module1/irules/lab2irule_0.html>`__
+
+  Link to DevCentral: https://clouddocs.f5.com/api/irules/HTTP__header.html
+
+  If you are really stuck, here is what we are looking for:
+
+  #. `When HTTP_Request comes in <../../class1/module1/irules/lab2irule_1.html>`__
+  #. `Log the headers from the HTTP_REQUEST <../../class1/module1/irules/lab2irule_2.html>`__
+  #. `When HTTP_RESPONSE comes back <../../class1/module1/irules/lab2irule_3.html>`__
+  #. `Log the response headers <../../class1/module1/irules/lab2irule_4.html>`__
+  #. `Now remove the HTTP::header named Server <../../class1/module1/irules/lab2irule_5.html>`__
+  #. `Now you should have enough to understand and the majority of code to create the iRule.  If not here is the complete iRule. <../../class1/module1/irules/lab2irule_99.html>`__
