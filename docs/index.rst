@@ -15,5 +15,7 @@ Welcome to the |classbold| lab at F5 Agility |year|
    :glob:
 
    intro*
+   topology
+   components
+   access
    class*/class*
-   

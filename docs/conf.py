@@ -5,17 +5,13 @@
 # ------------
 #
 # REQUIRED: Your class/lab name
-classname = "Cooking with iRules - HTTP"
+classname = "DNS over HTTPS / DNS over TLS"
 
 # OPTIONAL: The URL to the GitHub Repository for this class
-github_repo = "https://github.com/f5devcentral/f5-agility-labs-irules"
+github_repo = "https://github.com/grf5/DoHDotiRulesLX"
 
 # OPTIONAL: Google Analytics
 # googleanalytics_id = 'UA-85156643-4'
-
-#
-# END CONFIG
-# ----------
 
 import os
 import sys
@@ -256,6 +252,3 @@ texinfo_documents = [
      author, classname, classname,
      'Training'),
 ]
-
-
-
