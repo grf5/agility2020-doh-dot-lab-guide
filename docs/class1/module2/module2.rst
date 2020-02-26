@@ -23,8 +23,6 @@ virtual server has a simple pool and no iRules attached.
 
 |image29.png|
 
-.. _test-drive-1:
-
 Test Driving DNS over TLS to Traditional DNS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -54,14 +52,12 @@ server, you won’t see any information in **System** -> **Logs** for this
 traffic. Conventional F5 logging/statistics practices can be used for
 these connections, so we’ll move on.
 
-.. _packet-capture-1:
-
 Capturing DNS over TLS to Traditional DNS Traffic
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Maximize the BIG-IP CLI window. Execute the follow tcpdump command:
 
-tcpdump -nni 0.0 port 53 or port 853
+``tcpdump -nni 0.0 port 53 or port 853``
 
 Return to the Ubuntu Jump Host and re-run your **kdig** command. Observe
 the front and back-end connections using port 853 and 53, respectively.
