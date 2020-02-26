@@ -62,7 +62,7 @@ Maximize the BIG-IP CLI window. Execute the follow tcpdump command:
 Return to the Ubuntu Jump Host and re-run your **kdig** command. Observe
 the front and back-end connections using port 853 and 53, respectively.
 
-|image16.png|
+|image33.png|
 
 Stop your capture before moving on to the next section. This concludes
 the DoT-to-DNS portion of the lab.
