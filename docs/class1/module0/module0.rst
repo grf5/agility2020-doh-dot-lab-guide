@@ -3,7 +3,7 @@ BIG-IP Configuration Review
 
 Launch your RDP client and connect to the Windows Jump Host.
 
-|image5.png|
+|image2.png|
 
 Click “No” to close the network discovery prompt.
 
@@ -13,7 +13,7 @@ Three tabs will open up. The first tab is the UI of the BIG-IP. Let’s
 login using **admin** for our username and **f5agility2020** as our
 password.
 
-|image6.png|
+|image3.png|
 
 You should see the license screen initially. Let’s take a look at the
 configuration before we proceed with testing the proxy.
@@ -30,7 +30,7 @@ will see that we have LTM and iRulesLX provisioned. We’ll need both of
 these modules for handling DNS connections and translating between DNS
 and HTTPS.
 
-|image7.png|
+|image4.png|
 
 NTP
 ^^^
@@ -40,7 +40,7 @@ system health. Navigate to **System** -> **Configuration** -> **Device**
 -> **NTP**. It’s important that NTP is configured and working properly,
 especially when a BIG-IQ is paired or managed by BIG-IQ.
 
-|image8.png|
+|image5.png|
 
 DNS
 ^^^
@@ -54,7 +54,7 @@ resolvers that the system can use.
 you could simply assign static addresses to pool members and resolvers
 to alleviate this requirement.**
 
-|image9.png|
+|image6.png|
 
 Network Configuration
 ~~~~~~~~~~~~~~~~~~~~~
@@ -64,7 +64,7 @@ the DNS VIPs and the other is used to reach DNS servers. If you wish to
 view this portion of the config, you can click on the respective
 sections under the Network menu. Please do not make any changes.
 
-|image10.png|
+|image7.png|
 
 Local Traffic Manager (LTM)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -79,7 +79,7 @@ Navigate to **Local Traffic** -> **Nodes** and look at the node list.
 Here, we’re resolving dns.google and automatically creating pool members
 based on the records returned.
 
-|image11.png|
+|image8.png|
 
 Pools
 ^^^^^
@@ -93,7 +93,7 @@ port 53 for traditional DNS services (traditional_dns.google). If you’re
 not familiar with LTM pools, click through each pool to see how the
 service ports are specified.
 
-|image12.png|
+|image9.png|
 
 iRulesLX
 ^^^^^^^^
@@ -113,11 +113,10 @@ If you’ll navigate to **Local Traffic** -> **iRules** -> **LX
 Workspaces**, you can see the two rules for handling conversions in
 their respective direction.
 
-|image13.png|
+|image10.png|
 
 DNS to DoH Proxy
                 
-
 Click on the *DNS_to_DoH_Proxy* item under the *rules* section of
 **Workspace Files**. The first rule, *DNS_to_DoH_Proxy*, has two
 components. The classic iRule, which is written in TCL, is used to nab
@@ -127,7 +126,7 @@ to iRulesLX using base64 encoding. Once the request is processed, the
 response will be returned to this iRule, which will be base64 decoded
 and passed to the client.
 
-|image14.png|
+|image11.png|
 
 Click on the *index.js* file under the *dns_over_https* section of
 **Workspace Files**. The iRulesLX portion takes the DNS packet’s payload
@@ -136,10 +135,9 @@ POST method. The response, which will also be binary, gets base64
 encoded and passed back to the TCL portion of the iRule, which then
 sends the request back to the client.
 
-|image15.png|
+|image12.png|
 
 DoH to DNS Proxy
-                
 
 Navigate back to the iRulesLX Workspace list (**Local Traffic** ->
 **iRules** -> **iRulesLX Workspaces**) and view the *DoH_to_DNS_Proxy*
@@ -163,7 +161,7 @@ well.
 There is a slight distinction between base64 and base64url encoding! For
 more information, see https://en.wikipedia.org/wiki/Base64.
 
-|image16.png|
+|image13.png|
 
 Click on the *index.js* item under *DoH_to_DNS_Proxy* section of
 **Workspace Files**. For the iRulesLX portion, the script has several
@@ -179,7 +177,7 @@ The process intensive iRule can take advantage of the BIG-IPs native SSL
 and TCP protocol accelerations, greatly increasing the volume of
 requests that can be handled.
 
-|image17.png|
+|image14.png|
 
 Plugins
 '''''''
@@ -188,7 +186,7 @@ Navigate to **Local Traffic** -> **iRules** -> **LX Plugins**. This is
 where a workspace is mapped to a plug-in. This allows you to make
 changes to the workspace without committing those changes immediately.
 
-|image18.png|
+|image15.png|
 
 Virtual Servers 
 ^^^^^^^^^^^^^^^
@@ -211,12 +209,9 @@ example use case for these proxies would be for offering DoH/DoT to
 clients/customers/etc. without the need for modifying existing DNS
 infrastructure.
 
-|image19.png|
+|image16.png|
 
 
-.. |image1.png| image:: _images/image1.png
-   :width: 7.5in
-   :height: 5.29969in
 .. |image2.png| image:: _images/image2.png
    :width: 7.5in
    :height: 4.6875in
@@ -262,78 +257,3 @@ infrastructure.
 .. |image16.png| image:: _images/image16.png
    :width: 7.5in
    :height: 4.47917in
-.. |image17.png| image:: _images/image17.png
-   :width: 7.5in
-   :height: 4.47917in
-.. |image18.png| image:: _images/image18.png
-   :width: 7.5in
-   :height: 4.47917in
-.. |image19.png| image:: _images/image19.png
-   :width: 7.5in
-   :height: 3.19271in
-.. |image20.png| image:: _images/image20.png
-   :width: 7.5in
-   :height: 3.74479in
-.. |image21.png| image:: _images/image21.png
-   :width: 7.5in
-   :height: 2.85417in
-.. |image22.png| image:: _images/image22.png
-   :width: 7.5in
-   :height: 3.51563in
-.. |image23.png| image:: _images/image23.png
-   :width: 7.5in
-   :height: 3.46314in
-.. |image24.png| image:: _images/image24.png
-   :width: 7.5in
-   :height: 3.48958in
-.. |image25.png| image:: _images/image25.png
-   :width: 7.5in
-   :height: 4.47396in
-.. |image26.png| image:: _images/image26.png
-   :width: 2.75in
-   :height: 6.40278in
-.. |image27.png| image:: _images/image27.png
-   :width: 7.5in
-   :height: 4.55208in
-.. |image28.png| image:: _images/image28.png
-   :width: 7.5in
-   :height: 10in
-.. |image29.png| image:: _images/image29.png
-   :width: 7.5in
-   :height: 6.98222in
-.. |image30.png| image:: _images/image30.png
-   :width: 7.5in
-   :height: 4.76136in
-.. |image31.png| image:: _images/image31.png
-   :width: 7.5in
-   :height: 3.45313in
-.. |image32.png| image:: _images/image32.png
-   :width: 7.5in
-   :height: 3.51563in
-.. |image33.png| image:: _images/image33.png
-   :width: 7.5in
-   :height: 4.49479in
-.. |image34.png| image:: _images/image34.png
-   :width: 7.5in
-   :height: 4.37598in
-.. |image35.png| image:: _images/image35.png
-   :width: 7.5in
-   :height: 3.49479in
-.. |image36.png| image:: _images/image36.png
-   :width: 7.5in
-   :height: 3.46875in
-.. |image37.png| image:: _images/image37.png
-   :width: 7.5in
-   :height: 4.47396in
-.. |image38.png| image:: _images/image38.png
-   :width: 7.5in
-   :height: 2.99202in
-.. |image39.png| image:: _images/image39.png
-   :width: 7.5in
-   :height: 3.50243in
-.. |image40.png| image:: _images/image40.png
-   :width: 7.5in
-   :height: 3.59375in
-.. |image41.png| image:: _images/image41.png
-   :width: 7.5in
-   :height: 1.45278in
