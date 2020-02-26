@@ -28,7 +28,7 @@ second tab in Firefox to view the about:config page. On the top of that
 page, you’ll see a search box. Enter *trr* and press enter to see the
 DoH (trusted recursive resolver) configuration.
 
-|image2.png|
+|image17.png|
 
 We’ve pre-configured a few things for you. First, we set
 *network.trr.uri* to our custom virtual server URL. We also enabled
@@ -54,19 +54,19 @@ within the browser. This is a great way to see if DoH (TRR in
 Mozilla-speak) is working. Click on *DNS Lookup* to bring up the DNS
 query tool.
 
-|image3.png|
+|image18.png|
 
 Entering a URL and clicking *Resolve* will show the A/AAAA records
 returned for that FQDN.
 
-|image4.png|
+|image19.png|
 
 If you then click on *DNS*, you’ll be presented with a table of the
 current in-browser DNS cache. Click on *Refresh* to update the view. You
 can see in the output below that TRR was *true* for the queries sent,
 meaning DoH was used to resolve those hostnames.
 
-|image5.png|
+|image20.png|
 
 DoH in Action
 ~~~~~~~~~~~~~
@@ -74,7 +74,7 @@ DoH in Action
 Open a new tab and browse to a website. Return to the third tab and
 click *Refresh* to see the updated DNS cache table.
 
-|image6.png|
+|image21.png|
 
 BIG-IP Statistics and Logging
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -84,12 +84,12 @@ Back in the first tab on the F5 web UI, navigate to **Statistics** ->
 Servers* is selected in the *Statistics Type* drop-down. Observe the
 traffic statistics on the DoH-to-DNS virtual server.
 
-|image7.png|
+|image22.png|
 
 Change the *Statistics Type* to iRulesLX and you can see how many RPC
 connections have been made.
 
-|image8.png|
+|image23.png|
 
 Change the drop-down to *Pools*. You should notice that the back-end
 pools show 0 connections. Why? Because iRulesLX is talking to the
@@ -97,20 +97,20 @@ back-end DoH resolvers directly. You could point your DoH iRule to a
 local VIP with a DNS pool for better performance, stability, etc. but
 that is outside the scope of this lab.
 
-|image9.png|
+|image24.png|
 
 Navigate to **System** -> **Logs** -> **Local Traffic**. Notice that
 some useful information is being logged to help show the parsing and
 querying that is taking place behind the scenes.
 
-|image10.png|
+|image25.png|
 
 Capturing DNS over HTTPS Queries to Traditional DNS Traffic
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Finally, minimize *Firefox* to reveal the CLI shortcuts on the desktop:
 
-|image11.png|
+|image26.png|
 
 Let’s open the BIG-IP DNS Proxy link to bring up the BIG-IP’s CLI. Once
 running, let’s start a capture that will show us both sides of the DoH
@@ -123,59 +123,11 @@ Once running, maximize *Firefox* and perform another DNS lookup. View
 the HTTPS and DNS traffic in the packet capture output. The output below
 shows my queries to f5.com, f5agility.com and disney.com.
 
-|image12.png|
+|image27.png|
 
 Stop your capture before moving to the next section. This concludes the
 DoH-to-DNS proxy portion of the lab.
 
-.. |image1.png| image:: _images/image1.png
-   :width: 7.5in
-   :height: 5.29969in
-.. |image2.png| image:: _images/image2.png
-   :width: 7.5in
-   :height: 4.6875in
-.. |image3.png| image:: _images/image3.png
-   :width: 7.5in
-   :height: 4.6875in
-.. |image4.png| image:: _images/image4.png
-   :width: 7.5in
-   :height: 4.47917in
-.. |image5.png| image:: _images/image5.png
-   :width: 7.5in
-   :height: 4.48438in
-.. |image6.png| image:: _images/image6.png
-   :width: 7.5in
-   :height: 4.4775in
-.. |image7.png| image:: _images/image7.png
-   :width: 2.39879in
-   :height: 2.88051in
-.. |image8.png| image:: _images/image8.png
-   :width: 7.5in
-   :height: 4.47917in
-.. |image9.png| image:: _images/image9.png
-   :width: 7.5in
-   :height: 4.47917in
-.. |image10.png| image:: _images/image10.png
-   :width: 7.5in
-   :height: 3.89006in
-.. |image11.png| image:: _images/image11.png
-   :width: 7.5in
-   :height: 4.47917in
-.. |image12.png| image:: _images/image12.png
-   :width: 7.5in
-   :height: 4.47396in
-.. |image13.png| image:: _images/image13.png
-   :width: 7.5in
-   :height: 4.47917in
-.. |image14.png| image:: _images/image14.png
-   :width: 7.5in
-   :height: 4.54167in
-.. |image15.png| image:: _images/image15.png
-   :width: 7.5in
-   :height: 4.47917in
-.. |image16.png| image:: _images/image16.png
-   :width: 7.5in
-   :height: 4.47917in
 .. |image17.png| image:: _images/image17.png
    :width: 7.5in
    :height: 4.47917in
