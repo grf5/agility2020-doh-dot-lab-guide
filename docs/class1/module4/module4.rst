@@ -13,7 +13,7 @@ DNS request.
 
 You’ll get a response as shown below:
 
-|image39.png|
+|image38.png|
 
 Viewing Statistics for DNS-to-DoH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -21,12 +21,12 @@ Viewing Statistics for DNS-to-DoH
 Back on the BIG-IP, we’ll see connections on the DNS-to-DoH virtual
 server:
 
-|image40.png|
+|image39.png|
 
 If we set the statistics type to *iRulesLX*, we’ll see RPC connections
 on the iRule for this translation:
 
-|image41.png|
+|image40.png|
 
 Capturing Traditional DNS to DNS over HTTPS Traffic
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -42,7 +42,7 @@ Notice that a port 53 request comes in, a HTTPS connection is set up and
 the query is passed, then the port 53 response is sent to the client
 before the HTTPS connection is torn down.
 
-|image24.png|
+|image41.png|
 
 This concludes the hands-on portion of the lab. Feel free to explore and
 test the environment if there is time remaining.
