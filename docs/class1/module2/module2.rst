@@ -16,12 +16,12 @@ Virtual Server Configuration
 Maximize *Firefox*. Notice the virtual server for DoT-to-DNS is very
 simple:
 
-|image11.png|
+|image28.png|
 
-Clicking on *Resources* tab on the top navigation bar will show that the
+Clicking on **Resources** tab on the top navigation bar will show that the
 virtual server has a simple pool and no iRules attached.
 
-|image12.png|
+|image29.png|
 
 .. _test-drive-1:
 
@@ -31,9 +31,9 @@ Test Driving DNS over TLS to Traditional DNS
 Let’s return to the desktop and launch the Lab DNS Server client. You’ll
 be automagically logged in. Let’s run a DNS over TLS query:
 
-kdig +tls @10.1.10.100 www.f5.com
+``kdig +tls @10.1.10.100 www.f5.com``
 
-|image13.png|
+|image30.png|
 
 Viewing Statistics for DoT-to-DNS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -42,12 +42,12 @@ You can then see statistics on the virtual server by navigating to
 **Statistics** -> **Module Statistics** -> **Local Traffic** and
 selecting *Virtual Servers* in the drop-down list.
 
-|image14.png|
+|image31.png|
 
 Because this virtual server is taking advantage of backend pools, you
 will see statistics under the *Pools* statistics type as well.
 
-|image15.png|
+|image32.png|
 
 Because we don’t have any type of logging configured for that virtual
 server, you won’t see any information in **System** -> **Logs** for this
