@@ -111,12 +111,13 @@ Workspaces
 
 If you’ll navigate to **Local Traffic** -> **iRules** -> **LX
 Workspaces**, you can see the two rules for handling conversions in
-their respective direction.
+their respective direction. Click on the rule titled *DNS_to_DoH_Proxy*.
 
 |image10.png|
 
 DNS to DoH Proxy
-                
+""""""""""""""""
+
 Click on the *DNS_to_DoH_Proxy* item under the *rules* section of
 **Workspace Files**. The first rule, *DNS_to_DoH_Proxy*, has two
 components. The classic iRule, which is written in TCL, is used to nab
@@ -138,6 +139,7 @@ sends the request back to the client.
 |image12.png|
 
 DoH to DNS Proxy
+""""""""""""""""
 
 Navigate back to the iRulesLX Workspace list (**Local Traffic** ->
 **iRules** -> **iRulesLX Workspaces**) and view the *DoH_to_DNS_Proxy*
