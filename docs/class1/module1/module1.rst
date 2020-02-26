@@ -4,10 +4,7 @@ Proxying DNS over HTTPS Queries to Traditional DNS
 Certificate Requirements for DoH/DoT Virtual Servers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-DNS over HTTPS requires a valid server-side certificate. In our lab, we
-created a self-signed CA certificate as well as a self-signed
-certificate for the server. We loaded those certificates in your Firefox
-browser so that the browser will trust the BIG-IP DoH resolver.
+:NOTICE: DNS over HTTPS requires a valid server-side certificate. In our lab, we created a self-signed CA certificate as well as a self-signed certificate for the server. We loaded those certificates in your Firefox browser so that the browser will trust the BIG-IP DoH resolver.
 
 In a real-world scenario, you would need a certificate signed by a
 well-known certificate authority and loaded into the BIG-IP and attached
