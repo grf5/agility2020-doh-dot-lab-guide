@@ -12,7 +12,7 @@ Test Driving Traditional DNS to DNS over TLS
 
 On the Ubuntu jump host, issue the following command:
 
-``kdig @10.1.10.101 `www.yahoo.com <http://www.yahoo.com>```
+``kdig @10.1.10.101 www.yahoo.com``
 
 You should receive a successful response as shown below:
 
@@ -29,7 +29,7 @@ connections:
 Issuing the same command with TCP will increment the counters on the
 corresponding virtual server:
 
-``kdig +tcp @10.1.10.101 `www.f5.com <http://www.f5.com>```
+``kdig +tcp @10.1.10.101 www.f5.com``
 
 |image37.png|
 
