@@ -48,7 +48,7 @@ are simply being switched around:
 
 You will see the 53 and 853 connections in the output, as shown below.
 
-|image39.png|
+|image38.png|
 
 Stop your capture before moving on to the next section. This concludes
 the DNS-to-DoT section.

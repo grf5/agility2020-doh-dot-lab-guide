@@ -3,21 +3,17 @@ Proxying Traditional DNS queries to DNS over HTTPS
 
 Finally, let’s look at converting a DNS query to a DoH request.
 
-.. _test-drive-3:
-
 Test Driving Traditional DNS to DNS over HTTPS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We’ll once again use **kdig** as we’re simply generating a traditional
 DNS request.
 
-kdig @10.1.10.102 `www.f5agility.com <http://www.f5agility.com>`__
+``kdig @10.1.10.102 www.f5agility.com``
 
 You’ll get a response as shown below:
 
-|image21.png|
-
-.. _viewing-statistics-2:
+|image39.png|
 
 Viewing Statistics for DNS-to-DoH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -25,14 +21,12 @@ Viewing Statistics for DNS-to-DoH
 Back on the BIG-IP, we’ll see connections on the DNS-to-DoH virtual
 server:
 
-|image22.png|
+|image40.png|
 
 If we set the statistics type to *iRulesLX*, we’ll see RPC connections
 on the iRule for this translation:
 
-|image23.png|
-
-.. _packet-capture-3:
+|image41.png|
 
 Capturing Traditional DNS to DNS over HTTPS Traffic
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -40,11 +34,9 @@ Capturing Traditional DNS to DNS over HTTPS Traffic
 Running a packet capture, we can see the front-end udp/53 requests being
 translated to DoH requests:
 
-tcpdump -nni 0.0 (host 10.1.10.102 and port 53) or (host 8.8.4.4 or host
-8.8.8.8 and port 443)
+``tcpdump -nni 0.0 (host 10.1.10.102 and port 53) or (host 8.8.4.4 or host 8.8.8.8 and port 443)``
 
-**If your packet capture is “noisy,” removing the HTTPS monitor from the
-“doh_google.dns” pool will stop the intermittent queries.**
+:NOTICE: If your packet capture is “noisy,” removing the HTTPS monitor from the “doh_google.dns” pool will stop the intermittent queries.
 
 Notice that a port 53 request comes in, a HTTPS connection is set up and
 the query is passed, then the port 53 response is sent to the client
