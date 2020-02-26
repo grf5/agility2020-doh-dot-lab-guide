@@ -16,7 +16,7 @@ On the Ubuntu jump host, issue the following command:
 
 You should receive a successful response as shown below:
 
-|image35.png|
+|image34.png|
 
 Viewing Statistics for DNS-to-DoT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -24,14 +24,14 @@ Viewing Statistics for DNS-to-DoT
 Back in the BIG-IP web UI, you will see that the VIP is receiving
 connections:
 
-|image36.png|
+|image35.png|
 
 Issuing the same command with TCP will increment the counters on the
 corresponding virtual server:
 
 ``kdig +tcp @10.1.10.101 www.f5.com``
 
-|image37.png|
+|image36.png|
 
 Again, nothing super-fancy is happening in this configuration.
 Conventional F5 logging methods can be used for this traffic so we won’t
@@ -48,7 +48,7 @@ are simply being switched around:
 
 You will see the 53 and 853 connections in the output, as shown below.
 
-|image38.png|
+|image37.png|
 
 Stop your capture before moving on to the next section. This concludes
 the DNS-to-DoT section.
