@@ -53,9 +53,7 @@ You will see the 53 and 853 connections in the output, as shown below.
 Stop your capture before moving on to the next section. This concludes
 the DNS-to-DoT section.
 
+.. |image34.png| image:: _images/image34.png
 .. |image35.png| image:: _images/image35.png
-   :width: 7.5in
 .. |image36.png| image:: _images/image36.png
-   :width: 7.5in
 .. |image37.png| image:: _images/image37.png
-   :width: 7.5in
