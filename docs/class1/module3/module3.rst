@@ -55,16 +55,7 @@ the DNS-to-DoT section.
 
 .. |image35.png| image:: _images/image35.png
    :width: 7.5in
-   :height: 3.49479in
 .. |image36.png| image:: _images/image36.png
    :width: 7.5in
-   :height: 3.46875in
 .. |image37.png| image:: _images/image37.png
    :width: 7.5in
-   :height: 4.47396in
-.. |image38.png| image:: _images/image38.png
-   :width: 7.5in
-   :height: 2.99202in
-.. |image39.png| image:: _images/image39.png
-   :width: 7.5in
-   :height: 3.50243in
